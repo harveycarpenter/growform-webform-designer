@@ -20,6 +20,8 @@
     "webflow-cli": "^1.1.0"
   },
   "dependencies": {
+    "@blueprintjs/core": "^5.9.1",
+    "blueprintjs": "^0.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
