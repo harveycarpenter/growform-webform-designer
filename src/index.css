@@ -1,0 +1,53 @@
+body {
+  margin: 10px;
+  margin-top:0px;
+  -webkit-font-smoothing: antialiased;
+  background-color: rgb(41, 41, 41);
+}
+
+
+.bp5-button-group .bp5-button.bp5-fill, .bp5-button-group.bp5-fill .bp5-button:not(.bp5-fixed) {
+  font-size: 12px;
+  background: none;
+  cursor: default !important;
+  border-radius: 4px;
+  border: 1px solid rgb(35, 35, 35);
+  box-shadow: none !important;
+
+}
+
+.bp5-button-group .bp5-button.bp5-fill:hover, .bp5-button-group.bp5-fill .bp5-button:not(.bp5-fixed):hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.17) 100%);
+}
+
+.bp5-dark .bp5-button:not([class*=bp5-intent-]).bp5-active {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.17) 100%) !important;
+}
+
+.bp5-dark .bp5-html-select select, .bp5-dark .bp5-select select {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.17) 100%);
+  background-color: transparent !important;
+  cursor: default;
+  font-size: 12px;
+}
+
+.bp5-dark .bp5-html-select select:hover, .bp5-dark .bp5-select select:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.17) 100%);
+}
+
+.bp5-dark .bp5-button.bp5-intent-primary {
+  background-color: #006acc;
+  font-size: 12px;
+  cursor: default;
+}
+
+.bp5-dark .bp5-input {
+  font-size: 12px;
+  box-shadow: none;
+  border: 1px solid #444445;
+}
+
+.bp5-dark .bp5-input:focus {
+  box-shadow: none;
+  border: 1px solid #006acc;
+}
