@@ -2,6 +2,7 @@ const App = () => {
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     const element = await webflow.getSelectedElement()
+    console.log('webflow is', webflow)
     if (element?.textContent) {
       element.setTextContent(
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ' +
