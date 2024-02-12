@@ -11,7 +11,7 @@ justify-content: center;
 background-color: rgba(255, 255, 255, 0.07);
 border-radius: 4px;
 padding: 8px;
-margin: 14px;
+margin: 10px;
 `
 
 const icons = {

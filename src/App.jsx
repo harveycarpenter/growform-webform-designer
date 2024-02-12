@@ -36,7 +36,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="bp5-dark">
 {!elementIsSelected ? <EmptyState header="Make a selection" text="Select an element (eg. section or container) on the canvas to activate this panel" icon="arrow"/> : <EmbedAForm templates={templates}/>}
     </div>
   );
