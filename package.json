@@ -11,7 +11,7 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "@webflow/designer-extension-typings": "*",
+    "@webflow/designer-extension-typings": "^0.2.0-beta.3",
     "concurrently": "*",
     "typescript": "*",
     "vite": "^4.4.9",
@@ -23,6 +23,7 @@
     "@blueprintjs/core": "^5.9.1",
     "axios": "^1.6.7",
     "blueprintjs": "^0.0.8",
+    "classnames": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.8"

@@ -11,6 +11,7 @@ const WebflowToggle = ({options, value, onToggle}) => {
                                 key={i}
                                 active={option === value}
                                 onClick={() => onToggle(option)}
+                                className="toggle"
                             >
                                 {option}
                             </Button>

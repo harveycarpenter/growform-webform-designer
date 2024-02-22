@@ -6,8 +6,6 @@ const getTemplates = async (authToken) => {
 
     const endpoint = import.meta.env.VITE_API_URL + "/shared/templates";
 
-    console.log('endpoint is', endpoint)
-
     const response = await axios.get(endpoint, {
       headers: {
         Authorization: "Bearer " + authToken,
@@ -20,10 +18,11 @@ const getTemplates = async (authToken) => {
         label: template.templateName,
         featured: template.featured
       }}).filter(template => template.featured).sort((a, b) => a.label.localeCompare(b.label));
-  
+
       return templates;
 
   }
+
 
   catch(err) {
     return null;

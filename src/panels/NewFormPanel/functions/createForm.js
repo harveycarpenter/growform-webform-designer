@@ -26,7 +26,6 @@ const createForm = async (formName, selectedTemplateId, authToken) => {
    
          } else {
 
-            console.log(response.data);
            return {
                success: false,
                error: "Something went wrong"

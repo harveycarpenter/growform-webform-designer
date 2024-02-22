@@ -59,7 +59,6 @@ const ExistingFormPanel = ({handleEmbedForm}) => {
 
     return (
         <div>
-
             <Label text="Your form URL or ID:" />
             <TextInput 
             value={formURL}
@@ -67,7 +66,9 @@ const ExistingFormPanel = ({handleEmbedForm}) => {
             onChange={handleChangeFormURL}
             intent={formURLIsInvalid ? "danger" : "none"}
 />
+<div style={{marginTop: "4px"}}>
 <Button text="Embed form" primary onClick={handleEmbedClick} />
+</div>
         </div>
     )
 }

@@ -10,8 +10,8 @@ align-items: center;
 justify-content: center;
 background-color: rgba(255, 255, 255, 0.07);
 border-radius: 4px;
-padding: 8px;
-margin: 10px;
+padding: 10px;
+margin-bottom: 14px;
 `
 
 const icons = {

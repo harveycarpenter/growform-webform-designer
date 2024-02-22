@@ -1,3 +1,4 @@
 {
-  "name": "example-webflow-app-react"
+  "name": "example-webflow-app-react",
+  "apiVersion": "2"
 }

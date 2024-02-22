@@ -1,21 +1,24 @@
 import styled from 'styled-components';
 
-const StyledHeader = styled.span`
-font-size: 12px;
-font-weight: 600;
-color: rgb(232, 232, 232);
-margin-top: 4px;
-margin-bottom: 0px;
+const Container = styled.div`
+  margin-bottom: 4px;
+  ${props => props.paddingBottom && `padding-bottom: 6px;`}
 `
 
-const Header = ({ children }) => {
+const StyledHeader = styled.span`
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+`
 
-return (
-<StyledHeader>
-{children}
-</StyledHeader>
-)
-
+const Header = ({ children, paddingBottom }) => {
+  return (
+    <Container paddingBottom={paddingBottom}>
+      <StyledHeader>
+        {children}
+      </StyledHeader>
+    </Container>
+  )
 }
 
 export default Header;

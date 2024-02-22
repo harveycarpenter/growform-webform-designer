@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Toggle from '../../components/Toggle/Toggle';
 import NewFormPanel from '../../panels/NewFormPanel/NewFormPanel';
 import ExistingFormPanel from '../../panels/ExistingFormPanel/ExistingFormPanel';
-import embedForm from '../../functions/embedForm';
+import embedForm from '../../functions/embedForm/embedForm';
 
 const EmbedAForm = ({templates}) => {
 

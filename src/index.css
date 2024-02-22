@@ -1,8 +1,7 @@
 body {
-  margin: 10px;
-  margin-top:0px;
   -webkit-font-smoothing: antialiased;
   background-color: rgb(41, 41, 41);
+  margin: 0px;
 }
 
 
@@ -35,11 +34,16 @@ body {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.17) 100%);
 }
 
-.bp5-dark .bp5-button.bp5-intent-primary {
-  background-color: #006acc;
+.bp5-dark .bp5-button {
   font-size: 12px;
   cursor: default;
 }
+
+
+.bp5-dark .bp5-button.bp5-intent-primary {
+  background-color: #006acc;
+}
+
 
 .bp5-dark .bp5-input {
   font-size: 12px;
@@ -50,4 +54,13 @@ body {
 .bp5-dark .bp5-input:focus {
   box-shadow: none;
   border: 1px solid #006acc;
+}
+
+.bp5-dark .button-secondary, .bp5-dark .bp5-vertical .bp5-button {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.17) 100%) !important;
+  color: rgb(232, 232, 232) !important;
+}
+
+.bp5-dark .button-secondary:hover, .bp5-dark .bp5-vertical .bp5-button:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.17) 100%) !important;
 }

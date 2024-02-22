@@ -5,6 +5,7 @@ font-size: 11.5px;
 font-weight: 400;
 color: rgb(196, 196, 196);
 margin-bottom: 0px;
+text-align: center;
 `
 
 const Header = ({ children }) => {

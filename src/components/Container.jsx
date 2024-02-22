@@ -3,10 +3,8 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
   width: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: ${props => (props.compact ? '0' : '10px')};
+  padding-bottom: ${props => (props.compact ? '10px' : '12px')};
+  margin-bottom: 14px;
   max-width: 500px;
   margin: 0 auto;
   margin-bottom: ${props => (props.compact ? '-5px' : '0px')};

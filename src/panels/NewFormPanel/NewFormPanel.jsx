@@ -71,12 +71,14 @@ value={formName}
 label="Harvey's excellent form"
 onChange={handleChangeFormName}
 />
+<div style={{marginTop: "4px"}}>
 <Button
 text="Embed form"
 primary
 loading={loading}
 onClick={handleEmbedClick}
 />
+</div>
 </div>
     )
 }
