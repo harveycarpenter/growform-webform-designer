@@ -8,16 +8,59 @@ import getTemplates from './getTemplates';
 import safelyGetAttribute from './functions/safelyGetAttribute';
 import getGrowformContainerHeight from './functions/getGrowformContainerHeight';
 import setGrowformContainerHeight from './functions/setGrowformContainerHeight';
-
+import Login from './panels/Login/Login';
+import { loginUser, logoutUser, loggedIn, getJwt } from './auth';
+import BottomToolbar from './components/BottomToolbar/BottomToolbar';
 
 const StyledDiv = styled.div`
   margin: 12px;
 `;
 
+const setExtensionSize = async (size) => {
+  await webflow.setExtensionSize(size);
+}
+
 function App() {
 
   const [templates, setTemplates] = useState([]);
   const [replacingForm, setReplacingForm] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkLoggedIn = async () => {
+      const loggedInStatus = await loggedIn();
+      setIsLoggedIn(loggedInStatus);
+      if (loggedInStatus) {
+        const jwt = await getJwt();
+        if (jwt) {
+          setTemplates(await getTemplates(jwt));
+        }
+      }
+      setIsLoading(false);
+    };
+    checkLoggedIn();
+  }, []);
+
+  const handleUserLogin = async (token) => {
+    await loginUser(token);
+    const jwt = await getJwt();
+    if (jwt) {
+      setTemplates(await getTemplates(jwt));
+    }
+    setIsLoggedIn(true);
+    setIsLoading(false);
+  };
+
+  const handleOpenHelpDocs = () => {
+    window.open('https://growform.helpscoutdocs.com/article/102-how-to-use-the-growform-webflow-extension', '_blank');
+  };
+
+  const handleUserLogout = async () => {
+    await logoutUser();
+    setIsLoggedIn(false);
+  };
+
 
   const handleSetReplacingForm = (value) => {
     setReplacingForm(value);
@@ -33,6 +76,7 @@ function App() {
       })
 
     };
+
 
   const [selectedElement, setSelectedElement] = useState({
     elementId: null,
@@ -81,7 +125,8 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      setTemplates(await getTemplates(import.meta.env.VITE_JWT));
+      const jwt = await getJwt();
+      setTemplates(await getTemplates(jwt));
     })();
   }, []);
 
@@ -118,8 +163,6 @@ function App() {
             growformFormId: await safelyGetAttribute(element, 'data-growform-form-id'),
             growformEmbedId: growformEmbedId
           }
-
-          console.log('selected element is', selectedElement);
   
           setSelectedElement(selectedElement);
         } else {
@@ -130,16 +173,31 @@ function App() {
   
     subscribeToElementSelection();
   }, []);
-  
-  console.log('selected element is', selectedElement)
 
-  return (
-    <StyledDiv className="bp5-dark">
-      {(!selectedElement.elementId) ? <EmptyState header="Make a selection" text="Select an element (e.g., section or container) on the canvas to activate this panel" icon="arrow"/> : null}
-      {(selectedElement.elementId && !selectedElement.isGrowform) ? <EmbedAForm templates={templates}/> : null}
-      {(selectedElement.elementId && selectedElement.isGrowform) ? <GrowformFormSelected templates={templates} formId={selectedElement.growformFormId} replacingForm={replacingForm} handleSetReplacingForm={handleSetReplacingForm} formHeight={selectedElement.growformContainerHeight} handleChangeFormHeight={handleChangeFormHeight}/> : null}
-    </StyledDiv>
-  );
+  if(isLoading) {
+
+    return <div>Loading...</div>
+
+  } else {
+
+  if (!isLoggedIn) {
+    setExtensionSize("large");
+    return <div><Login onLogin={handleUserLogin}/></div>
+  } else {
+    setExtensionSize("default");
+    return (
+      <StyledDiv className="bp5-dark">
+        {(!selectedElement.elementId) ? <EmptyState header="Make a selection" text="Select an element (e.g., section or container) on the canvas to activate this panel" icon="arrow"/> : null}
+        {(selectedElement.elementId && !selectedElement.isGrowform) ? <EmbedAForm templates={templates}/> : null}
+        {(selectedElement.elementId && selectedElement.isGrowform) ? <GrowformFormSelected templates={templates} formId={selectedElement.growformFormId} replacingForm={replacingForm} handleSetReplacingForm={handleSetReplacingForm} formHeight={selectedElement.growformContainerHeight} handleChangeFormHeight={handleChangeFormHeight}/> : null}
+        <BottomToolbar handleUserLogout={handleUserLogout} handleOpenHelpDocs={handleOpenHelpDocs}/>
+      </StyledDiv>
+    );
+
+  }
+}
+
+  
 }
 
 export default App;

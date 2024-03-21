@@ -13,6 +13,7 @@
     "@vitejs/plugin-react-swc": "^3.3.2",
     "@webflow/designer-extension-typings": "^0.2.0-beta.3",
     "concurrently": "*",
+    "connect-history-api-fallback": "^2.0.0",
     "typescript": "*",
     "vite": "^4.4.9",
     "vite-plugin-svgr": "^3.2.0",
@@ -24,8 +25,10 @@
     "axios": "^1.6.7",
     "blueprintjs": "^0.0.8",
     "classnames": "^2.5.1",
+    "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.2",
     "styled-components": "^6.1.8"
   }
 }

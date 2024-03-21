@@ -4,7 +4,7 @@ const createForm = async (formName, selectedTemplateId, authToken) => {
 
     try {
    
-       const endpoint = process.env.API_URL + "/shared/createform";
+       const endpoint = import.meta.env.VITE_API_URL + "/shared/createform";
    
        const data = {
            id: selectedTemplateId,

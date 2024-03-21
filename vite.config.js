@@ -1,9 +1,10 @@
-import react from '@vitejs/plugin-react-swc'
-import { defineConfig } from 'vite'
-import svgrPlugin from 'vite-plugin-svgr'
+import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vite';
+import svgrPlugin from 'vite-plugin-svgr';
+import history from 'connect-history-api-fallback';
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react(), svgrPlugin()],
   build: {
     minify: true,
     watch: {
@@ -19,5 +20,11 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), svgrPlugin()],
-})
+  server: {
+    // Include middleware for SPA routing fallback to index.html
+    setupMiddlewares: (middlewares, { app }) => {
+      app.use(history());
+      return middlewares;
+    },
+  },
+});

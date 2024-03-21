@@ -47,7 +47,6 @@ await growformContainerDiv.setCustomAttribute('data-growform-form-id', formId);
 await growformContainerDiv.setCustomAttribute('data-growform-embed-id', embedId);
 await growformContainerDiv.setCustomAttribute('data-growform-container', "true");
 
-
 let growformIframe = await growformContainerDiv?.prepend(webflow.elementPresets.DOM);
 
 await growformIframe.setTag('iframe');
@@ -62,8 +61,12 @@ await growformIframe.setAttribute('data-growform-embedSetting-transparency', emb
 await growformIframe.setAttribute('data-growform-iframe', "true");
 await growformIframe.setAttribute('data-growform-container-element-id', growformContainerDiv.id.element);
 
+await webflow.setSelectedElement(growformContainerDiv);
+
 setOrUpdateStyles(growformContainerDiv, growformContainerStyles, containerStyleName);
 setOrUpdateStyles(growformIframe, growformIframeStyles, iFrameStyleName);
+
+
 
 }
 

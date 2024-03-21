@@ -6,6 +6,7 @@ import Button from '../../components/Button/Button';
 import createForm from './functions/createForm';
 import Label from '../../components/Label/Label';
 import EmptyState from '../EmptyState/EmptyState';
+import { getJwt } from '../../auth';
 
 const NewFormPanel = ({templates, handleEmbedForm}) => {
 
@@ -31,7 +32,9 @@ const NewFormPanel = ({templates, handleEmbedForm}) => {
 
         setLoading(true);
 
-        const result = await createForm(formName, selectedTemplateId, import.meta.env.VITE_API_URL);
+        const jwt = await getJwt();
+
+        const result = await createForm(formName, selectedTemplateId, jwt);
 
         if (result.success && result.formId) {
             handleEmbedForm(result.formId)
